@@ -10,8 +10,3 @@ export const Menu = styled.aside<Props> `
     background-color: #0B3B69;
     float: left;
 `
-
-export const Conteudo = styled.div `
-    height: auto;
-    width: 100%;
-`

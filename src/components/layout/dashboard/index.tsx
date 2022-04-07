@@ -1,8 +1,7 @@
 import React from "react";
 
 import { 
-  SectionAside,
-  ContainerLayout
+  Main
 } from "./styles";
 
 import HeaderDashboard from '../../dashboard/header';
@@ -13,6 +12,9 @@ const dashboard: React.FC = ( { children } ) => {
   <>
     <HeaderDashboard/>
     <Aside/>
+    <Main>
+        { children }
+    </Main>
   </>
   )
 }

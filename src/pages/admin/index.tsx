@@ -6,7 +6,7 @@ const admin: React.FC = () => {
   return (
     (
       <LayoutDashboard>
-        
+        conteudo
       </LayoutDashboard>
     )
   );

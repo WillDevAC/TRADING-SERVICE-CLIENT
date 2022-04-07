@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const SectionAside = styled.div`
+export const Main = styled.div`
   
 `;
-
-export const ContainerLayout = styled.div `
-    
-`

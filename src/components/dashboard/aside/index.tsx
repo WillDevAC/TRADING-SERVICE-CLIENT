@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Menu, Conteudo } from "./styles";
+import { Menu } from "./styles";
 
 const aside: React.FC = () => {
 
@@ -15,9 +15,6 @@ const aside: React.FC = () => {
       <Menu screensize={GetScreenSize}>
         <p>Menu</p>
       </Menu>
-      <Conteudo>
-        <p>Conteudo</p>
-      </Conteudo>
     </>
   );
 };
