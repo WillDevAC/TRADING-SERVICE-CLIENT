@@ -15,5 +15,25 @@ export default createGlobalStyle`
     background: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.text};
     font-family: 'Poppins', sans-serif;
+
+        /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: white; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #072038; 
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: black; 
+    }
   }
 `;

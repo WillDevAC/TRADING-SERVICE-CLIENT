@@ -15,6 +15,9 @@ export const ContainerHeaderDashboard = styled.div`
   padding-right: 2rem;
   padding-left: 2rem;
 
+  position: sticky;
+  top: 0;
+
   img {
     height: 5.5rem;
   }

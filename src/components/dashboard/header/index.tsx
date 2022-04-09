@@ -10,7 +10,7 @@ const header: React.FC = () => {
   return (
     <>
       <ContainerHeaderDashboard>
-        <img src="images/logo-mobile.png" alt="Logo" />
+        <img src="/images/logo-mobile.png" alt="Logo" />
 
         <SectionDashboardButtons>
           <LogoutIcon/>
