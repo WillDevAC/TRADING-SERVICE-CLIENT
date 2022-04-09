@@ -15,6 +15,12 @@ import { ButtonDefault, ButtonLink } from "../../template/buttons/buttons";
 import Router from "next/router";
 
 const register: React.FC = () => {
+
+  const handleEventRedirect = (e) => {
+    Router.push("register/step2")
+    e.preventDefault();
+  }
+
   return (
     <Container>
       <SectionMobile type="primary" mobile="true">
@@ -22,7 +28,7 @@ const register: React.FC = () => {
       </SectionMobile>
 
       <Section type="secondary" mobile="false">
-        <Form>
+        <Form onSubmit={handleEventRedirect}>
           <Title>Registre-se</Title>
 
           <Label>Nome completo</Label>

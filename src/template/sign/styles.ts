@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { IoFolderOpenOutline } from 'react-icons/io5';
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -25,6 +27,68 @@ export const Information = styled.div`
   &:hover {
     color: black;
     cursor: pointer;
+  }
+`;
+
+export const Folder = styled(IoFolderOpenOutline)`
+  color: #0B3B69;
+  font-size: 4rem;
+`;
+
+export const DocumentSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #e3e4e8;
+  border-radius: 5px;
+  padding: 15px 30px;
+  gap: 35px;
+`;
+
+export const DocumentDiv = styled.div`
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+
+  h1, p {
+    text-align: center;
+    color: #0B3B69;
+  }
+  
+  h1 {
+    @media screen and (max-width: 1130px) {
+      font-size: 1.5rem;
+    }
+
+    @media screen and (max-width: 830px) {
+      font-size: 1.3rem;
+    }
+
+    @media screen and (max-width: 300px) {
+      font-size: 1rem;
+    }
+  }
+`;
+
+export const SendButtons = styled(DocumentDiv)`
+  flex-direction: row;
+  
+  @media screen and (max-width: 910px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 800px) {
+    flex-direction: row;
+  }
+
+  @media screen and (max-width: 300px) {
+    flex-direction: column;
+  }
+
+  a {
+    width: 100%;
   }
 `;
 
