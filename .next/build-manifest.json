@@ -30,20 +30,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/extract": [
+    "/login": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/extract.js"
+      "static/chunks/pages/login.js"
     ],
-    "/home": [
+    "/register": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/home.js"
+      "static/chunks/pages/register.js"
     ],
-    "/withdraw": [
+    "/register/step2": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/withdraw.js"
+      "static/chunks/pages/register/step2.js"
     ]
   },
   "ampFirstPages": []

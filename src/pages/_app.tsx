@@ -12,7 +12,7 @@ import dayjs from "dayjs";
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { pathname, asPath, push } = useRouter();
   useEffect(() => {
-    if (pathname.search("/login") < 0 && typeof window != undefined) {
+    if (pathname.search("/login") < 0 && typeof window != undefined && pathname.search("/register")) {
       const value = localStorage.getItem("@token");
       const date = localStorage.getItem("@timestampToken");
       const isValid =
