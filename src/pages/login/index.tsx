@@ -93,9 +93,9 @@ const sign: React.FC = () => {
           />
 
           <ButtonDefault>Acessar</ButtonDefault>
-          <ButtonLink onClick={() => Router.push("/register")}>
+          {/* <ButtonLink onClick={() => Router.push("/register")}>
             CADASTRA-SE
-          </ButtonLink>
+          </ButtonLink> */}
         </Form>
       </Section>
     </Container>

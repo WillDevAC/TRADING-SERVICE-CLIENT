@@ -97,7 +97,7 @@ const slider: React.FC<SliderProps> = (props) => {
     var currentdate = new Date();
     const hours = currentdate.getHours();
     const min = currentdate.getMinutes();
-    setClock(hours + ":" + min);
+    setClock(String(hours).padStart(2, '0') + ":" + String(min).padStart(2, '0') );
   };
   return (
     <>
