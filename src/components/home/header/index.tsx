@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Router, { useRouter } from "next/router";
 import { Container, ContainerIcons, ChatIcon, ExitIcon } from "./styles";
 
 interface props {
@@ -13,7 +13,14 @@ const header = ({ type }) => {
 
       <ContainerIcons type={type}>
         <ChatIcon />
-        <ExitIcon />
+        <div
+          onClick={() => {
+            localStorage.clear();
+            Router.push("/login");
+          }}
+        >
+          <ExitIcon />
+        </div>
       </ContainerIcons>
     </Container>
   );

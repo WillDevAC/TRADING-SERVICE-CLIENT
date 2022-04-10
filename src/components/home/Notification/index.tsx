@@ -16,9 +16,10 @@ interface Props {
   Date: string;
   Time: string;
   Value: string;
+  amount: string
 }
 
-const notification: React.FC<Props> = ({ Image, Title, Date, Time, Value }) => {
+const notification: React.FC<Props> = ({ Image, Title, Date, Time, Value, amount }) => {
   return (
     <Container>
       <NotifContainer>
@@ -35,7 +36,8 @@ const notification: React.FC<Props> = ({ Image, Title, Date, Time, Value }) => {
       </NotifContainer>
       <NotifValue>
         <NotifValueDiv>
-          <h1>R$ {Value}</h1>
+          <h1>{Value}</h1>
+          <h1 style={{color: '#707070', fontSize: 10}}>{amount}</h1>
         </NotifValueDiv>
       </NotifValue>
     </Container>
