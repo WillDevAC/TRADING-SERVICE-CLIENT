@@ -1,9 +1,9 @@
 import React from "react";
+import HomePage from "./home";
 
-import Sign from "./login";
 
 const Home: React.FC = () => {
-  return <Sign />;
+  return <HomePage />;
 };
 
 export default Home;
