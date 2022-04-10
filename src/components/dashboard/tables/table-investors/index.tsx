@@ -5,10 +5,12 @@ import {
   ContainerTable,
   ContainerPagination,
   ContainerTableActions,
-  ContainerTableActionsButtons
+  ContainerTableActionsButtons,
 } from "../../../../template/admin/tables/styles";
 
 import listInvestors from "../../../../json/dashboard/Investors.json";
+
+import Pagination from "@mui/material/Pagination";
 
 import Router from "next/router";
 
@@ -22,7 +24,7 @@ const table_investors: React.FC = () => {
             <option value="">Mais recente</option>
             <option value="">Menos recente</option>
           </select>
-          <button>Novo investidor</button>
+          <button onClick={() => Router.push('investors/add')}>Novo investidor</button>
         </ContainerTableActionsButtons>
 
         <input type="search" placeholder="🔎 Pesquisar" />
@@ -49,11 +51,17 @@ const table_investors: React.FC = () => {
                   <td>{user.consultant}</td>
                   <td>
                     <ContainerTableActions>
+                      
                       <button onClick={() => Router.push("investors/edit/1")}>
                         Editar
                       </button>
+
                       <button>Excluir</button>
-                      <button onClick={() => Router.push("investors/extract/1")}>Extrato</button>
+
+                      <button onClick={() => Router.push("investors/extract/1")}>
+                        Extrato
+                      </button>
+
                     </ContainerTableActions>
                   </td>
                 </tr>
@@ -64,7 +72,7 @@ const table_investors: React.FC = () => {
       </ContainerTable>
 
       <ContainerPagination>
-        <p>Paginação aqui</p>
+        <Pagination count={5} variant="outlined" shape="rounded" />
       </ContainerPagination>
     </>
   );

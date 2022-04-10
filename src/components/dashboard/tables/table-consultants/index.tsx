@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   ContainerActionsTable,
@@ -8,9 +8,35 @@ import {
   ContainerTableActionsButtons
 } from "../../../../template/admin/tables/styles";
 
+import TextField from "@mui/material/TextField";
+
+import Modal from "../../modal";
 import Router from "next/router";
 
+import Pagination from '@mui/material/Pagination';
+
+import { ModalContainer } from "../../../../template/modal/styles";
+import { ButtonDefault } from "../../../../template/buttons/buttons";
+
+
 const table_consultants: React.FC = () => {
+
+  const [openPopup, setOpenPopup] = useState(false);
+  const [openModalConsultant, setOpenModalConsultant] = useState(false);
+  const [openModalConsultantEdit, setOpenModalConsultantEdit] = useState(false);
+
+  const HandleConsultantAddModal = () => {
+    setOpenModalConsultant(true);
+    setOpenPopup(true);
+    setOpenModalConsultantEdit(false);
+  };
+
+  const HandleConsultantEditModal = () => {
+    setOpenModalConsultant(false);
+    setOpenModalConsultantEdit(true);
+    setOpenPopup(true);
+  };
+
   return (
     <>
       <ContainerActionsTable>
@@ -20,7 +46,7 @@ const table_consultants: React.FC = () => {
             <option value="">Mais convites aceitos</option>
             <option value="">Mais convites gerados</option>
           </select>
-          <button>Novo consultor</button>
+          <button onClick={HandleConsultantAddModal}>Novo consultor</button>
         </ContainerTableActionsButtons>
 
         <input type="search" placeholder="🔎 Pesquisar" />
@@ -46,7 +72,7 @@ const table_consultants: React.FC = () => {
                 <td>SÃO JOSE / RS</td>
                 <td>
                   <ContainerTableActions>
-                    <button onClick={() => Router.push("consultants/edit/1")}>
+                    <button onClick={HandleConsultantEditModal}>
                       Editar
                     </button>
                     <button>Excluir</button>
@@ -59,8 +85,57 @@ const table_consultants: React.FC = () => {
       </ContainerTable>
 
       <ContainerPagination>
-        <p>Paginação aqui</p>
+        <Pagination count={5} variant="outlined" shape="rounded" />
       </ContainerPagination>
+
+
+      {openModalConsultant == true && (
+        <Modal openPopup={openPopup} setOpenPopup={setOpenPopup} title="">
+          <ModalContainer>
+            <h3>NOVO CONSULTOR</h3>
+
+            <TextField id="outlined-uncontrolled" label="Nome completo" />
+
+            <TextField id="outlined-uncontrolled" label="Email" />
+
+            <TextField id="outlined-uncontrolled" label="Senha" />
+
+            <TextField id="outlined-uncontrolled" label="Cidade" />
+
+            <ButtonDefault>CADASTRAR</ButtonDefault>
+          </ModalContainer>
+        </Modal>
+      )}
+
+      {openModalConsultantEdit == true && (
+        <Modal openPopup={openPopup} setOpenPopup={setOpenPopup} title="">
+          <ModalContainer>
+            <h3>EDITAR CONSULTOR</h3>
+
+            <TextField
+              id="outlined-uncontrolled"
+              label="Nome completo"
+              defaultValue="xxx"
+            />
+
+            <TextField
+              id="outlined-uncontrolled"
+              label="Email"
+              defaultValue="xxx"
+            />
+
+            <TextField
+              id="outlined-uncontrolled"
+              label="Cidade"
+              defaultValue="xxx"
+            />
+
+            <TextField id="outlined-uncontrolled" label="Nova senha" />
+
+            <ButtonDefault>EDITAR</ButtonDefault>
+          </ModalContainer>
+        </Modal>
+      )}
     </>
   );
 };

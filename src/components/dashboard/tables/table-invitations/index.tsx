@@ -8,6 +8,8 @@ import {
   ContainerTableActionsButtons
 } from "../../../../template/admin/tables/styles";
 
+import Pagination from '@mui/material/Pagination';
+
 const table_invitations: React.FC = () => {
   return (
     <>
@@ -42,7 +44,7 @@ const table_invitations: React.FC = () => {
                 <td>RIO BRANCO / AC</td>
                 <td>
                   <ContainerTableActions>
-                    <button>Visualizar</button>
+                    <button>Baixar documentação</button>
                     <button>Cancelar convite</button>
                   </ContainerTableActions>
                 </td>
@@ -53,7 +55,7 @@ const table_invitations: React.FC = () => {
       </ContainerTable>
 
       <ContainerPagination>
-        <p>Paginação aqui</p>
+        <Pagination count={5} variant="outlined" shape="rounded" />
       </ContainerPagination>
     </>
   );

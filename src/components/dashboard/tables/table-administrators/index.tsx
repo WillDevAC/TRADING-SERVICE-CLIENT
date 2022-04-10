@@ -1,16 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+
+import Pagination from "@mui/material/Pagination";
+import TextField from "@mui/material/TextField";
+
+import Modal from "../../modal";
 
 import {
   ContainerActionsTable,
   ContainerTable,
   ContainerPagination,
   ContainerTableActions,
-  ContainerTableActionsButtons
+  ContainerTableActionsButtons,
 } from "../../../../template/admin/tables/styles";
 
-import Router from "next/router";
+import { ModalContainer } from "../../../../template/modal/styles";
+
+import { ButtonDefault } from "../../../../template/buttons/buttons";
 
 const table_administrators: React.FC = () => {
+  const [openPopup, setOpenPopup] = useState(false);
+  const [openModalAdm, setOpenModalAdm] = useState(false);
+  const [openModalAdmEdit, setOpenModalAdmEdit] = useState(false);
+
+  const HandleModalAdministratorAdd = () => {
+    setOpenModalAdm(true);
+    setOpenPopup(true);
+    setOpenModalAdmEdit(false);
+  };
+
+  const HandleModalAdministratorEdit = () => {
+    setOpenModalAdm(false);
+    setOpenModalAdmEdit(true);
+    setOpenPopup(true);
+  };
+
   return (
     <>
       <ContainerActionsTable>
@@ -20,7 +43,9 @@ const table_administrators: React.FC = () => {
             <option value="">Mais recente</option>
             <option value="">Mais antigo</option>
           </select>
-          <button>Novo administrador</button>
+          <button onClick={HandleModalAdministratorAdd}>
+            Novo administrador
+          </button>
         </ContainerTableActionsButtons>
 
         <input type="search" placeholder="🔎 Pesquisar" />
@@ -44,7 +69,7 @@ const table_administrators: React.FC = () => {
                 <td>20/04/1966</td>
                 <td>
                   <ContainerTableActions>
-                    <button onClick={() => Router.push("administrators/edit/1")}>
+                    <button onClick={HandleModalAdministratorEdit}>
                       Editar
                     </button>
                     <button>Excluir</button>
@@ -57,8 +82,64 @@ const table_administrators: React.FC = () => {
       </ContainerTable>
 
       <ContainerPagination>
-        <p>Paginação aqui</p>
+        <Pagination count={5} variant="outlined" shape="rounded" />
       </ContainerPagination>
+
+      {openModalAdm == true && (
+        <Modal openPopup={openPopup} setOpenPopup={setOpenPopup} title="">
+          <ModalContainer>
+            <h3>NOVO ADMINISTRADOR</h3>
+
+            <TextField id="outlined-uncontrolled" label="Nome completo" />
+
+            <TextField id="outlined-uncontrolled" label="Email" />
+
+            <TextField id="outlined-uncontrolled" label="CPF" />
+
+            <TextField id="outlined-uncontrolled" label="Data de nascimento" />
+
+            <TextField id="outlined-uncontrolled" label="Senha" />
+
+            <ButtonDefault>CADASTRAR</ButtonDefault>
+          </ModalContainer>
+        </Modal>
+      )}
+
+      {openModalAdmEdit == true && (
+        <Modal openPopup={openPopup} setOpenPopup={setOpenPopup} title="">
+          <ModalContainer>
+            <h3>EDITAR ADMINISTRADOR</h3>
+
+            <TextField
+              id="outlined-uncontrolled"
+              label="Nome completo"
+              defaultValue="xxx"
+            />
+
+            <TextField
+              id="outlined-uncontrolled"
+              label="Email"
+              defaultValue="xxx"
+            />
+
+            <TextField
+              id="outlined-uncontrolled"
+              label="CPF"
+              defaultValue="xxx"
+            />
+
+            <TextField
+              id="outlined-uncontrolled"
+              label="Data de nascimento"
+              defaultValue="xxx"
+            />
+
+            <TextField id="outlined-uncontrolled" label="Nova senha" />
+
+            <ButtonDefault>EDITAR</ButtonDefault>
+          </ModalContainer>
+        </Modal>
+      )}
     </>
   );
 };

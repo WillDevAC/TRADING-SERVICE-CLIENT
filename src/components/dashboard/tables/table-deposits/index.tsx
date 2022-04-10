@@ -8,7 +8,7 @@ import {
   ContainerTableActionsButtons
 } from "../../../../template/admin/tables/styles";
 
-import Router from "next/router";
+import Pagination from '@mui/material/Pagination';
 
 const table_deposits: React.FC = () => {
   return (
@@ -57,7 +57,7 @@ const table_deposits: React.FC = () => {
       </ContainerTable>
 
       <ContainerPagination>
-        <p>Paginação aqui</p>
+        <Pagination count={5} variant="outlined" shape="rounded" />
       </ContainerPagination>
     </>
   );

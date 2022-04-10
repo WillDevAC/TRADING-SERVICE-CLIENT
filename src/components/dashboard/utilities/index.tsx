@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { 
     TitleUtilities,
@@ -9,9 +9,18 @@ import { RiUserStarFill } from "react-icons/ri";
 import { BiLinkAlt } from "react-icons/bi";
 import { SiGnuprivacyguard } from 'react-icons/si'
 
+import Modal from "../modal";
+import TextField from "@mui/material/TextField";
+
+import { ModalContainer } from "../../../template/modal/styles";
+import { ButtonDefault } from "../../../template/buttons/buttons";
+
 import Router from 'next/router'
 
 const utilities: React.FC = () => {
+
+  const [openPopup, setOpenPopup] = useState<Boolean>(false);
+
   return (
   <>
     <TitleUtilities>Utilidades</TitleUtilities>
@@ -25,7 +34,7 @@ const utilities: React.FC = () => {
         Meus convidados
       </button>
 
-      <button>
+      <button onClick={() => setOpenPopup(true)}>
         <div>
           <BiLinkAlt size={25} color="black" />
         </div>
@@ -40,6 +49,19 @@ const utilities: React.FC = () => {
       </button>
       
     </UtilitiesActions>
+
+    <Modal openPopup={openPopup} setOpenPopup={setOpenPopup} title="">
+        <ModalContainer>
+          <h3>NOVO LINK DE CONVITE</h3>
+
+          <TextField id="outlined-uncontrolled" label="Nome do investidor" />
+          <TextField id="outlined-uncontrolled" label="Cidade do investidor" />
+          <TextField id="outlined-uncontrolled" label="Consultor" disabled value="xxx"/>
+
+          <ButtonDefault>GERAR LINK</ButtonDefault>
+        </ModalContainer>
+      </Modal>
+
   </>
   );
 }
