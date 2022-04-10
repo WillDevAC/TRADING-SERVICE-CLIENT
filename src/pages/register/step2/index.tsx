@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -15,10 +15,22 @@ import { ButtonDefault, ButtonLink } from "../../../template/buttons/buttons";
 import Router from "next/router";
 
 const register: React.FC = () => {
-
+  const [cep, setCep] = useState("");
+  const [address, setAddress] = useState("");
+  const [number, setNumber] = useState("");
   const handleEventRedirect = (e) => {
-    Router.push("../register/step3/")
     e.preventDefault();
+
+    localStorage.setItem("register-cep", cep.replaceAll("-", ""));
+    localStorage.setItem("register-address", address);
+    localStorage.setItem("register-number", number);
+
+    Router.push(`/register/step3?ref=${Router.query?.ref}`);
+  };
+
+  function CEP(cpf: string) {
+    cpf = cpf.replace(/[^\d]/g, "");
+    return cpf.replace(/^([\d]{5})\-*([\d]{3})/, "$1-$2");
   }
 
   return (
@@ -32,17 +44,42 @@ const register: React.FC = () => {
           <Title>Registre-se</Title>
 
           <Label>CEP</Label>
-          <InputDefault type="text" name="nome" id="nome" required />
+          <InputDefault
+            value={cep}
+            onChange={(e) => {
+              if (e.target.value.length <= 9) {
+                setCep(CEP(e.target.value));
+              }
+            }}
+            type="text"
+            name="nome"
+            id="nome"
+            required
+          />
 
           <Label>Endereço</Label>
-          <InputDefault type="text" name="cpf" id="cpf" required />
+          <InputDefault
+            type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            name="address"
+            id="address"
+            required
+          />
 
           <Label>Nº da casa</Label>
-          <InputDefault type="text" name="ncasa" id="ncasa" required />
+          <InputDefault
+            type="text"
+            value={number}
+            onChange={(e) => setNumber(e.target.value)}
+            name="ncasa"
+            id="ncasa"
+            required
+          />
 
           <ButtonDefault>CONTINUAR</ButtonDefault>
 
-          <ButtonLink onClick={() => Router.push("../")}>VOLTAR</ButtonLink>
+          <ButtonLink onClick={() => Router.back()}>VOLTAR</ButtonLink>
         </Form>
       </Section>
     </Container>
