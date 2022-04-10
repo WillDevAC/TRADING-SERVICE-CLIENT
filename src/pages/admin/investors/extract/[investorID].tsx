@@ -13,6 +13,8 @@ import {
   CardExtract,
 } from "../../../../template/investors/styles";
 
+import Pagination from "@mui/material/Pagination";
+
 const investor_extract: React.FC = () => {
   return (
     <DashboardLayout
@@ -46,7 +48,7 @@ const investor_extract: React.FC = () => {
       </ContentExtractInvestor>
       
       <ContainerPagination>
-        <p>Paginação aqui</p>
+        <Pagination count={5} variant="outlined" shape="rounded" />
       </ContainerPagination>
 
     </DashboardLayout>
