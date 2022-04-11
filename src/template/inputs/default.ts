@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Input = styled.input`
   background-color: #f5f6fa;
-  padding: 1.2rem;
+  padding: 1.1rem;
   border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -28,6 +28,8 @@ export const InputFile = styled.a`
   color: gray;
   gap: 10px;
   background-color: #f5f6fa;
+
+  text-align: center;
 
   &:hover {
     cursor: pointer;

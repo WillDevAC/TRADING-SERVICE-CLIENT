@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import Router, { useRouter } from "next/router";
-import { 
-  Container, 
-  ContainerIcons, 
-  ChatIcon, 
-  ExitIcon,
+
+import {
   CardChat,
   CardChatImg,
   CardChatContent,
@@ -13,42 +9,51 @@ import {
   ActionsUserMessage,
   SendMessageAction,
   OtherMessage,
-  MyMessage
+  MyMessage,
 } from "./styles";
 
-import { MdSend } from "react-icons/md";
+interface IChat {
+  author: string;
+  quantity: number;
+}
+
+import Button from "@mui/material/Button";
+
+import Modal from "../../../components/dashboard/modal";
 
 import { ModalContainer } from "../../../template/modal/styles";
 
-import Modal from "../modal";
-interface props {
-  type?: string;
-}
+import { MdSend } from "react-icons/md";
 
-const header = ({ type }) => {
+const card_chat: React.FC<IChat> = ({ author, quantity }) => {
   const [openPopup, setOpenPopup] = useState<Boolean>(false);
 
   return (
     <>
-      <Container>
-        <img src="/images/logo-mobile.png" alt="Logo" />
-
-        <ContainerIcons type={type}>
-          <ChatIcon onClick={() => setOpenPopup(true)} />
-          <div
-            onClick={() => {
-              localStorage.clear();
-              Router.push("/login");
-            }}
-          >
-            <ExitIcon />
-          </div>
-        </ContainerIcons>
-      </Container>
+      <CardChat>
+        <CardChatImg>
+          <img src="/images/chat.png" alt="Logo" />
+          <CardChatInformations>
+            <p>{author}</p>
+            <span>
+              <b>{quantity} nova mensagem</b>
+            </span>
+          </CardChatInformations>
+        </CardChatImg>
+        <CardChatContent>
+          <Button variant="outlined" onClick={() => setOpenPopup(true)}>
+            Abrir chat
+          </Button>
+          <Button variant="outlined" color="error">
+            Finalizar
+          </Button>
+        </CardChatContent>
+      </CardChat>
 
       <Modal openPopup={openPopup} setOpenPopup={setOpenPopup} title="">
         <ModalContainer>
-          <h3>SUPORTE ONLINE</h3>
+          <h3>CHAT ONLINE</h3>
+
           <ChatContainerMessages>
             <OtherMessage>
               <p>
@@ -76,4 +81,4 @@ const header = ({ type }) => {
   );
 };
 
-export default header;
+export default card_chat;

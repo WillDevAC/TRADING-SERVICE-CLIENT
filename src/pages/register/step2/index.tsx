@@ -12,6 +12,8 @@ import { InputDefault, Label } from "../../../template/inputs/default";
 
 import { ButtonDefault, ButtonLink } from "../../../template/buttons/buttons";
 
+import TextField from "@mui/material/TextField";
+
 import Router from "next/router";
 
 const register: React.FC = () => {
@@ -43,37 +45,34 @@ const register: React.FC = () => {
         <Form onSubmit={handleEventRedirect}>
           <Title>Registre-se</Title>
 
-          <Label>CEP</Label>
-          <InputDefault
-            value={cep}
+          <TextField
+            id="outlined-textarea"
+            label="CEP"
             onChange={(e) => {
               if (e.target.value.length <= 9) {
                 setCep(CEP(e.target.value));
               }
             }}
-            type="text"
-            name="nome"
-            id="nome"
+            value={cep}
+            name="cep"
             required
           />
 
-          <Label>Endereço</Label>
-          <InputDefault
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            name="address"
+          <TextField
             id="address"
+            label="Endereço"
+            onChange={(e) => setAddress(e.target.value)}
+            value={address}
+            name="address"
             required
           />
 
-          <Label>Nº da casa</Label>
-          <InputDefault
-            type="text"
-            value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            name="ncasa"
+          <TextField
             id="ncasa"
+            label="Nº da casa"
+            onChange={(e) => setNumber(e.target.value)}
+            value={number}
+            name="ncasa"
             required
           />
 

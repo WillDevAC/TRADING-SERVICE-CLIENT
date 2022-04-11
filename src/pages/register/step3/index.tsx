@@ -12,11 +12,9 @@ import {
   SectionMobile,
 } from "../../../template/sign/styles";
 
-import {
-  InputDefault,
-  Label,
-  InputFile,
-} from "../../../template/inputs/default";
+import { InputFile } from "../../../template/inputs/default";
+
+import TextField from "@mui/material/TextField";
 
 import { ButtonDefault, ButtonLink } from "../../../template/buttons/buttons";
 import { toast } from "react-nextjs-toast";
@@ -24,10 +22,14 @@ import Router from "next/router";
 import { api } from "../../../services/api";
 import dayjs from "dayjs";
 
+import { styled } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+
 const register: React.FC = () => {
   const hiddenFileInput = React.useRef(null);
-const [front, setFront] = useState(null)
-const [back, setBack] = useState(null)
+  const [front, setFront] = useState(null);
+  const [back, setBack] = useState(null);
   const hiddenFileInput2 = React.useRef(null);
   const [rg, setRg] = useState("");
   const [email, setEmail] = useState("");
@@ -47,10 +49,14 @@ const [back, setBack] = useState(null)
     setFront(url);
   };
 
+  const Input = styled("input")({
+    display: "none",
+  });
+
   const handleChange2 = async (event) => {
     event.preventDefault();
     const url = await handleChangeIMG(event.target.files[0]);
-    setBack(url)
+    setBack(url);
     console.log(url);
   };
 
@@ -87,8 +93,8 @@ const [back, setBack] = useState(null)
       });
       return Router.replace("/register");
     }
-    console.log(hiddenFileInput2.current.files)
-    if (!front ) {
+    console.log(hiddenFileInput2.current.files);
+    if (!front) {
       return toast.notify("Insira a parte frontal do documento", {
         title: "error",
       });
@@ -98,8 +104,8 @@ const [back, setBack] = useState(null)
         title: "error",
       });
     }
-    const docFrontUrl = front
-    const docBackUrl = back
+    const docFrontUrl = front;
+    const docBackUrl = back;
 
     const data = {
       email,
@@ -107,7 +113,7 @@ const [back, setBack] = useState(null)
       docBackUrl,
       name,
       cpf,
-      rg: rg.replaceAll('.','').replaceAll('-',''),
+      rg: rg.replaceAll(".", "").replaceAll("-", ""),
       birthDate,
       password,
       cep,
@@ -138,77 +144,73 @@ const [back, setBack] = useState(null)
 
       <Section type="secondary" mobile="false">
         <Form>
-          <Title>Registre-se</Title>
-          <Label>RG</Label>
-          <InputDefault
-            value={rg}
+
+          <Title>Documentação</Title>
+
+          <TextField
+            id="outlined-textarea"
+            label="Email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+            name="email"
+            required
+          />
+
+          <TextField
+            id="outlined-textarea"
+            label="Senha"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+            value={password}
+            type="password"
+            name="password"
+            required
+          />
+
+          <TextField
+            id="outlined-textarea"
+            label="RG"
             onChange={(e) => {
               if (e.target.value.length <= 12) {
                 setRg(RG(e.target.value));
               }
             }}
-            type="text"
+            value={rg}
             name="rg"
-            id="rg"
             required
           />
 
-          <Label>Email</Label>
-          <InputDefault
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            type="text"
-            name="email"
-            id="email"
-            required
-          />
-
-          <Label>Senha</Label>
-          <InputDefault
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            type="password"
-            name="password"
-            id="password"
-            required
-          />
-
-          <DocumentSection>
-            <DocumentDiv>
-              <Folder />
-              <h1>Documentação</h1>
-              <p>
-                Clique nos botões abaixo e anexe seu documento de identidade
-                (frente e verso).
-              </p>
-            </DocumentDiv>
-            <SendButtons>
-              <InputFile border="dashed" onClick={handleClick}>
-                Frente
-              </InputFile>
-              <input
-                id="fileSelect"
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <label htmlFor="contained-button-file">
+              <Input
+                accept="image/*"
+                id="contained-button-file"
+                multiple
+                type="file"
                 onChange={handleChange}
                 ref={hiddenFileInput}
-                type="file"
                 hidden
               />
-              <InputFile border="dashed" onClick={handleClick2}>
-                Verso
-              </InputFile>
-              <input
+              <Button variant="contained" component="span">
+                Frente RG
+              </Button>
+            </label>
+            <label htmlFor="contained-button-file">
+              <Input
                 id="fileSelect2"
                 onChange={handleChange2}
                 ref={hiddenFileInput2}
                 type="file"
                 hidden
               />
-            </SendButtons>
-          </DocumentSection>
+              <Button variant="contained" component="span">
+                Verso RG
+              </Button>
+            </label>
+          </Stack>
 
           <ButtonDefault onClick={(e) => onSubmit(e)}>FINALIZAR</ButtonDefault>
 

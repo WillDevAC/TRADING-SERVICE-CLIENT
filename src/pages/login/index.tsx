@@ -13,6 +13,9 @@ import { api } from "../../services/api";
 import { InputDefault, Label } from "../../template/inputs/default";
 import { ButtonDefault, ButtonLink } from "../../template/buttons/buttons";
 import { toast } from "react-nextjs-toast";
+
+import TextField from "@mui/material/TextField";
+
 const sign: React.FC = () => {
   const [cpf, setCpf] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -67,35 +70,29 @@ const sign: React.FC = () => {
         <Form onSubmit={HandleFormSubmitRedirect}>
           <Title>Portal de investimentos</Title>
 
-          <Label>CPF</Label>
-          <InputDefault
+          <TextField
+            id="outlined-textarea"
+            label="CPF"
             onChange={(e) => {
               if (e.target.value.length <= 14) {
                 setCpf(CPF(e.target.value));
               }
             }}
             value={cpf}
-            max
-            type="text"
             name="cpf"
-            id="cpf"
             required
           />
 
-          <Label>Senha</Label>
-          <InputDefault
+          <TextField
+            id="outlined-size-small"
+            label="Senha"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
             name="email"
-            id="password"
             required
           />
-
           <ButtonDefault>Acessar</ButtonDefault>
-          {/* <ButtonLink onClick={() => Router.push("/register")}>
-            CADASTRA-SE
-          </ButtonLink> */}
         </Form>
       </Section>
     </Container>

@@ -18,9 +18,9 @@ import { ModalContainer } from "../../../../template/modal/styles";
 import { ButtonDefault } from "../../../../template/buttons/buttons";
 
 const table_administrators: React.FC = () => {
-  const [openPopup, setOpenPopup] = useState(false);
-  const [openModalAdm, setOpenModalAdm] = useState(false);
-  const [openModalAdmEdit, setOpenModalAdmEdit] = useState(false);
+  const [openPopup, setOpenPopup] = useState<Boolean>(false);
+  const [openModalAdm, setOpenModalAdm] = useState<Boolean>(false);
+  const [openModalAdmEdit, setOpenModalAdmEdit] = useState<Boolean>(false);
 
   const HandleModalAdministratorAdd = () => {
     setOpenModalAdm(true);

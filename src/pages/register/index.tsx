@@ -12,6 +12,8 @@ import { InputDefault, Label } from "../../template/inputs/default";
 
 import { ButtonDefault, ButtonLink } from "../../template/buttons/buttons";
 
+import TextField from "@mui/material/TextField";
+
 import Router from "next/router";
 import dayjs from "dayjs";
 
@@ -61,48 +63,43 @@ const register: React.FC = () => {
         <Form onSubmit={onSubmit}>
           <Title>Registre-se</Title>
 
-          <Label>Nome completo</Label>
-          <InputDefault
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            name="nome"
+          <TextField
             id="nome"
+            label="Nome completo"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            name="nome"
             required
           />
 
-          <Label>CPF</Label>
-          <InputDefault
+          <TextField
+            id="cpf"
+            label="CPF"
             onChange={(e) => {
               if (e.target.value.length <= 14) {
                 setCpf(CPF(e.target.value));
               }
             }}
             value={cpf}
-            type="text"
             name="cpf"
-            id="cpf"
             required
           />
 
-          <Label>Data de nascimento</Label>
-          <InputDefault
-            type="text"
-            value={birthDate}
+          <TextField
+            id="nascimento"
+            label="Data de nascimento"
             onChange={(e) => {
               if (e.target.value.length <= 10) {
                 //@ts-ignore
                 setBirthDate(DATA("XX/XX/XXXX", e.target.value));
               }
             }}
+            value={birthDate}
             name="nascimento"
-            id="nascimento"
             required
           />
 
           <ButtonDefault>CONTINUAR</ButtonDefault>
-
-          <ButtonLink onClick={() => Router.back()}>VOLTAR</ButtonLink>
         </Form>
       </Section>
     </Container>

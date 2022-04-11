@@ -12,6 +12,7 @@ export const Container = styled.div`
   @media (max-width: 800px) {
     flex-direction: column;
     background-color: white;
+    flex-direction: column;
   }
 
   overflow: hidden;
@@ -38,11 +39,22 @@ export const Folder = styled(IoFolderOpenOutline)`
 export const DocumentSection = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #e3e4e8;
   border-radius: 5px;
-  padding: 15px 30px;
+  padding: 30px 30px;
   gap: 35px;
+  height: 30%;
+
+  p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    align-items: center;
+    width: 100%;
+    font-weight: bold;
+  }
 `;
 
 export const DocumentDiv = styled.div`
@@ -74,6 +86,7 @@ export const DocumentDiv = styled.div`
 
 export const SendButtons = styled(DocumentDiv)`
   flex-direction: row;
+  height: 15px;
   
   @media screen and (max-width: 910px) {
     flex-direction: column;
@@ -100,6 +113,7 @@ export const Section = styled.div`
   background-color: white;
   height: 100%;
   width: 50%;
+  flex-direction: column;
 
   //@Mobile
   @media (max-width: 800px) {
