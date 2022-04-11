@@ -7,18 +7,36 @@ export const ContainerActionsTable = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  @media(max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    padding-bottom: 20px;
+    margin-top: 5%;
+  }
+
   select {
       padding: 10px;
       color: black;
       font-size: 15px;
       border-radius: 5px;
       outline: none;
+
+      @media(max-width: 800px) {
+        width: 100%;
+      }
   }
 
   input {
       padding: 10px;
       font-size: 15px;
       border-radius: 5px;
+      
+      @media(max-width: 800px) {
+        width: 100%;
+      }
+
   }
 
 `;
@@ -92,12 +110,27 @@ export const ContainerTableActionsButtons = styled.div `
   justify-content: space-between;
   gap: 10px;
 
+  @media(max-width: 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
   button {
     padding: 10px;
     background-color: #DDDDDD;
     border-radius: 5px;
     border: 1px solid black;
     font-size: 15px;
+
+    @media(max-width: 800px) {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
     &:hover{
       background-color: #8c8c8c;
       cursor: pointer;

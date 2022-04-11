@@ -13,6 +13,12 @@ export const ContainerDashboard = styled.div`
   flex-direction: column;
   margin-left: 4%;
   margin-right: 2%;
+
+  @media(max-width: 800px) {
+    margin-left: 5%;
+    padding-left: 0%;
+    justify-content: center;
+  }
 `;
 export const TitleDashboardContent = styled.div `
   display: flex;
@@ -25,7 +31,11 @@ export const TitleDashboardContent = styled.div `
 
 export const TitleDashboard = styled.h1 `
   color: black;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  @media(max-width: 800px) {
+    width: 100%;
+    font-size: 1.4rem;
+  }
 `
 
 export const ContentIcon = styled.div `
