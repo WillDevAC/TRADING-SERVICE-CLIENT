@@ -7,6 +7,12 @@ export const InvestorContainer = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   gap: 10px;
+  
+  @media(max-width: 800px) {
+   flex-direction: column;
+   padding-top: 3%;
+  }
+
 `;
 
 export const InvestorCard = styled.div `
@@ -27,6 +33,11 @@ export const InvestorCard = styled.div `
         text-align: center;
         width: 100%;
         color: #0B3B69;
+    }
+
+    @media(max-width: 800px) {
+     padding-top: 10%;
+     width: 100%;
     }
 `;
 

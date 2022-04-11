@@ -45,7 +45,7 @@ const table_registersAll: React.FC = () => {
                 <td>RIO BRANCO / AC</td>
                 <td>
                   <ContainerTableActions>
-                    <button>Visualizar</button>
+                    <button>Baixar documentação</button>
                     <button>Cancelar convite</button>
                   </ContainerTableActions>
                 </td>
