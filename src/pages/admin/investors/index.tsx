@@ -5,7 +5,7 @@ import TableInvestors from '../../../components/dashboard/tables/table-investors
 
 const investors: React.FC = () => {
   return (
-      <LayoutDashboard title="Investidores" urlBackButton='/admin' isBackButton={true}>
+      <LayoutDashboard title="Investidores">
           <TableInvestors/>
       </LayoutDashboard>
   );

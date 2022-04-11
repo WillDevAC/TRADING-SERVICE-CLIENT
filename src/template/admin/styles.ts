@@ -6,12 +6,6 @@ export const DetailsDashboard = styled.div`
   justify-content: space-between;
   flex-direction: row;
   height: 12rem;
-
-  @media(max-width: 800px) {
-    flex-direction: column;
-    display: none;
-  }
-
 `;
 
 export const CardDetails = styled.div`
@@ -25,11 +19,6 @@ export const CardDetails = styled.div`
   flex-direction: column;
 
   gap: 10px;
-
-  @media(max-width: 800px) {
-    display: none;
-  }
-
 `;
 
 export const CardTitle = styled.h1`
@@ -46,8 +35,4 @@ export const CardValue = styled.span`
 export const Title = styled.span `
   color: black;
   padding-bottom: 15px;
-
-  @media(max-width: 800px) {
-    font-size: 0.8rem;
-  }
 `

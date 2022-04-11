@@ -6,7 +6,7 @@ import TableAdministrators from '../../../components/dashboard/tables/table-admi
 
 const administrators: React.FC = () => {
   return (
-      <LayoutDashboard title="Administradores" urlBackButton='/admin' isBackButton={true}>
+      <LayoutDashboard title="Administradores">
           <TableAdministrators/>
       </LayoutDashboard>
   );

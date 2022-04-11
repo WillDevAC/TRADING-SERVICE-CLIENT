@@ -5,14 +5,6 @@ export const TitleFinancial = styled.span`
   color: black;
   font-size: 1.5rem;
   font-weight: bold;
-
-  @media(max-width: 800px) {
-    font-size: 1.3rem;
-    padding-top: 5%;
-    padding-bottom: 4%;
-    font-size: 1.2rem;
-  }
-
 `;
 
 export const FinancialActions = styled.div`
@@ -20,13 +12,6 @@ export const FinancialActions = styled.div`
   min-height: 100px;
   align-items: center;
   gap: 10px;
-
-  @media(max-width: 800px) {
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 95%;
-  }
 
   button {
     display: flex;
@@ -39,15 +24,9 @@ export const FinancialActions = styled.div`
     border: none;
     border-radius: 10px;
 
-    @media(max-width: 800px) {
-      font-size: 0.9rem;
-      width: 100%;
-      justify-content: flex-start;
-    }
-
     gap: 10px;
 
-    font-size: 14px;
+    font-size: 18px;
 
     div {
       display: flex;
