@@ -6,7 +6,7 @@ import TableConsultants from '../../../components/dashboard/tables/table-consult
 
 const consultants: React.FC = () => {
   return (
-      <LayoutDashboard title="Consultores">
+      <LayoutDashboard title="Consultores" urlBackButton='/admin' isBackButton={true}>
           <TableConsultants/>
       </LayoutDashboard>
   );

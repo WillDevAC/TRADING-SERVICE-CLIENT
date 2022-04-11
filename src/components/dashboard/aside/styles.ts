@@ -17,6 +17,36 @@ export const Menu = styled.aside<Props> `
     gap: 5px;
 
     position: fixed;
+
+    @media(max-width: 800px) {
+      width: 20%;
+      gap: 20px;
+      display: none;
+    }
+
+    @media(max-width: 1230px) {
+      width: 7%;
+    }
+
+    @media(max-width: 1090) {
+      width: 8%;
+    }
+
+    @media(max-width: 1030) {
+      width: 10%;
+    }
+
+    @media(max-width: 1000) {
+      width: 10%;
+    }
+
+    @media(max-width: 950) {
+      width: 15%;
+    }
+
+    @media(max-width: 823) {
+      width: 50%;
+    }
 `;
 
 export const MenuLink = styled.abbr `
@@ -31,5 +61,10 @@ export const MenuLink = styled.abbr `
 
     &:hover{
       background-color: #102233;
+    }
+
+    @media(max-width: 800px) {
+      width: 40px;
+      height: 40px;
     }
 `

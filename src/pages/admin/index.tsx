@@ -14,11 +14,12 @@ import DetailsDate from "../../json/dashboard/detailsCard.json";
 
 import UtilitiesSection from "../../components/dashboard/utilities";
 import FinancialSection from "../../components/dashboard/financial";
+import AsideMobile from '../../components/dashboard/aside_mobile'
 
 const admin: React.FC = () => {
   return (
     <LayoutDashboard title="Painel interativo">
-      <Title>Você está logado como <b>ADMINISTRADOR.</b></Title>
+      <Title>Logado como <b>ADMINISTRADOR.</b></Title>
       
       <DetailsDashboard>
         {DetailsDate.map((item) => (
@@ -31,6 +32,9 @@ const admin: React.FC = () => {
 
       <UtilitiesSection />
       <FinancialSection />
+      
+      { /* please adjust permissions on mobile */ }
+      <AsideMobile/>
 
     </LayoutDashboard>
   );
